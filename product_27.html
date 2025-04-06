@@ -1,36 +1,57 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Clé USB 27</title>
+    <title>Clé USB Xtrakey 27 - 37GB</title>
     <style>
-        body { background-color: #0f0f0f; color: #fff; font-family: Arial, sans-serif; }
-        .container { width: 80%; margin: auto; padding: 20px; }
-        .image { text-align: center; }
+        body { background-color: #0f0f0f; color: #ffffff; font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        header { background-color: #000000; padding: 10px; text-align: center; }
+        nav a { color: #00ffff; margin: 0 15px; text-decoration: none; font-weight: bold; }
+        .container { padding: 20px; max-width: 800px; margin: auto; }
+        h1, h2 { color: #00ffff; }
         .image img { width: 300px; border-radius: 12px; }
-        .description { margin-top: 20px; font-size: 1.1em; }
-        .button { margin-top: 20px; display: flex; gap: 10px; }
-        .btn { background-color: #00ffff; border: none; padding: 10px 20px; cursor: pointer; border-radius: 8px; font-weight: bold; }
+        .gallery { display: flex; justify-content: center; gap: 10px; margin-top: 10px; }
+        .gallery img { width: 80px; cursor: pointer; border-radius: 6px; }
+        .description { margin: 20px 0; font-size: 1.1em; }
+        .price { font-size: 1.2em; margin-bottom: 20px; }
+        .btn { background-color: #00ffff; color: #000; border: none; padding: 10px 20px; cursor: pointer; border-radius: 8px; font-weight: bold; }
         .pdf-link { display: none; margin-top: 10px; }
     </style>
     <script>
         function showPDFLink() {
             document.getElementById('pdfLink').style.display = 'block';
         }
+        function changeMainImage(src) {
+            document.getElementById('mainImage').src = src;
+        }
     </script>
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="#">Catégories</a>
+            <a href="#">Support</a>
+            <a href="#">FR / EN</a>
+        </nav>
+    </header>
     <div class="container">
         <h1>Clé USB Xtrakey 27 - 37GB</h1>
+        <h2>Clé USB 27</h2>
+        <div class="price">Prix : 18.99 $ CAD</div>
         <div class="image">
-            <img src="https://m.media-amazon.com/images/I/627bL+V3zGgL._AC_SL1500_.jpg" alt="Clé USB 27">
+            <img id="mainImage" src="https://m.media-amazon.com/images/I/61bL+V3zGgL._AC_SL1500_.jpg" alt="Clé USB 27">
+            <div class="gallery">
+                <img src="https://m.media-amazon.com/images/I/61bL+V3zGgL._AC_SL1500_.jpg" onclick="changeMainImage(this.src)">
+                <img src="https://m.media-amazon.com/images/I/71B9QH3-FXL._AC_SL1500_.jpg" onclick="changeMainImage(this.src)">
+                <img src="https://m.media-amazon.com/images/I/61B04OoyrBL._AC_SL1500_.jpg" onclick="changeMainImage(this.src)">
+            </div>
         </div>
         <div class="description">
-            Cette clé USB haute performance de 37 Go est parfaite pour une utilisation professionnelle et personnelle. Transférez vos fichiers rapidement et en toute sécurité grâce à sa compatibilité universelle.
+            Cette clé USB haute performance de 37 Go est idéale pour le stockage rapide et sécurisé de vos fichiers multimédias, documents et logiciels. Conçue pour une compatibilité maximale avec tous les appareils modernes.
         </div>
-        <div class="button">
-            <button class="btn" onclick="showPDFLink()">Payer & Télécharger la facture</button>
-        </div>
+        <button class="btn" onclick="showPDFLink()">Payer & Télécharger la facture</button>
         <div id="pdfLink" class="pdf-link">
             <a href="facture_usb27.pdf" class="btn" download>Télécharger la facture PDF</a>
         </div>
