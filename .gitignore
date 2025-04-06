@@ -1,0 +1,30 @@
+# Systèmes
+.DS_Store
+Thumbs.db
+
+# MacOS / Windows caches
+ehthumbs.db
+Icon?
+desktop.ini
+
+# Node / build (si jamais tu ajoutes une interface JS plus tard)
+node_modules/
+dist/
+build/
+
+# Éditeurs
+.vscode/
+*.log
+
+# Sauvegardes ou fichiers temporaires
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# Fichiers ZIP et archives exportées
+*.zip
+
+# Eviter de ré-uploader le ZIP du projet complet
+OWMC-XTRAKEYS-*.zip
