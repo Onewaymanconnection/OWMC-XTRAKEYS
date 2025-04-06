@@ -1,0 +1,21 @@
+LICENCE PRIVÉE – OWMC-XTRAKEYS
+
+Ce projet web, intitulé “OWMC-XTRAKEYS”, ainsi que l’ensemble de ses éléments constitutifs  
+(codes HTML, CSS, JavaScript, images, galeries, textes, logos, vidéos, factures PDF, contenus visuels et structure du site)  
+sont la propriété intellectuelle exclusive de leur créateur, William Mancini.
+
+Droits réservés – Tous droits d’auteur, droit de reproduction, de diffusion, de publication et d’exploitation commerciale sont strictement interdits, sauf autorisation écrite, signée et préalable du propriétaire.
+
+### Interdictions formelles :
+- Il est **strictement interdit** de copier, cloner, modifier, distribuer, publier ou réutiliser ce projet, en tout ou en partie.
+- Ce projet **n’est pas open-source**.
+- Aucun droit d’usage, d’intégration ou de personnalisation n’est accordé à un tiers.
+
+### Statut :
+Ce site est une **démonstration front-end privée à usage personnel**, hébergée à des fins de présentation uniquement.
+
+---
+
+Auteur & Propriétaire exclusif : William Mancini  
+Nom du projet : OWMC-XTRAKEYS  
+Date de dernière mise à jour : 2024
