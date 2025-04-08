@@ -137,7 +137,6 @@
             });
         });
 
-        // Auto-remplir produit à partir de l’URL
         const url = new URL(window.location.href);
         const productName = url.searchParams.get("produit") || "Nom du produit";
         document.getElementById("produit").value = productName;
