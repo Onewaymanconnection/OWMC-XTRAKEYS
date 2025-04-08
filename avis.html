@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Avis et Commentaires - OWMC</title>
+    <style>
+        body {
+            background-color: #0f0f0f;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 0 10px #00ffff55;
+        }
+        h2 {
+            color: #00ffff;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border-radius: 6px;
+            border: none;
+            margin-bottom: 10px;
+        }
+        .thumbs {
+            text-align: center;
+            font-size: 24px;
+        }
+        .thumbs span {
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        .stars {
+            text-align: center;
+            margin: 10px 0;
+        }
+        .stars span {
+            font-size: 24px;
+            cursor: pointer;
+            color: #ccc;
+        }
+        .stars .selected {
+            color: gold;
+        }
+        button {
+            background-color: #00ffff;
+            border: none;
+            padding: 10px 20px;
+            width: 100%;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        #confirmation {
+            display: none;
+            margin-top: 15px;
+            color: #00ff99;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Avis et Commentaires</h2>
+        <form id="avisForm" action="https://script.google.com/macros/s/AKfycbwec-LlmFxAugKu9FpLAGDnL446lYFPf9MSthR1SI1LSpSa0wYcdyo4SaQ94UenURs0VQ/exec" method="POST">
+            <label>Nom du produit :</label>
+            <input type="text" name="produit" id="produit" required readonly>
+
+            <label>Évaluation :</label>
+            <div class="thumbs">
+                <span onclick="setPouce('up')">👍</span>
+                <span onclick="setPouce('down')">👎</span>
+            </div>
+            <input type="hidden" name="pouce" id="pouce" value="">
+
+            <div class="stars">
+                <span onclick="setStars(1)">★</span>
+                <span onclick="setStars(2)">★</span>
+                <span onclick="setStars(3)">★</span>
+                <span onclick="setStars(4)">★</span>
+                <span onclick="setStars(5)">★</span>
+            </div>
+            <input type="hidden" name="etoiles" id="etoiles" value="0">
+
+            <label>Email (facultatif) :</label>
+            <input type="email" name="email" placeholder="ex: client@email.com">
+
+            <label>Commentaire :</label>
+            <textarea name="commentaire" rows="3" placeholder="Votre avis ici..."></textarea>
+
+            <button type="submit">Envoyer</button>
+            <div id="confirmation">Merci pour votre avis, il compte pour nous.</div>
+        </form>
+    </div>
+
+    <script>
+        function setPouce(type) {
+            document.getElementById('pouce').value = type;
+        }
+
+        function setStars(count) {
+            document.getElementById('etoiles').value = count;
+            const stars = document.querySelectorAll('.stars span');
+            stars.forEach((s, i) => {
+                s.classList.toggle('selected', i < count);
+            });
+        }
+
+        document.getElementById("avisForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const form = event.target;
+            fetch(form.action, {
+                method: "POST",
+                body: new FormData(form)
+            }).then(() => {
+                document.getElementById("confirmation").style.display = "block";
+                form.reset();
+                document.querySelectorAll('.stars span').forEach(s => s.classList.remove('selected'));
+            });
+        });
+
+        const url = new URL(window.location.href);
+        const productName = url.searchParams.get("produit") || "Nom du produit";
+        document.getElementById("produit").value = productName;
+    </script>
+</body>
+</html>
