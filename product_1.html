@@ -4,28 +4,40 @@
     <meta charset="UTF-8">
     <title>Clé USB Xtrakey 1</title>
     <style>
-        body { background-color: #0f0f0f; color: #ffffff; font-family: Arial, sans-serif; }
-        .container { width: 80%; margin: auto; padding: 20px; }
-        .image img { width: 300px; border-radius: 12px; }
-        .description { margin-top: 20px; font-size: 1.1em; }
+        body { background-color: #0f0f0f; color: #ffffff; font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .container { padding: 20px; max-width: 800px; margin: auto; }
+        .main-image img { width: 300px; border-radius: 12px; }
+        .gallery { display: flex; justify-content: center; gap: 10px; margin-top: 10px; }
+        .gallery img { width: 80px; cursor: pointer; border-radius: 6px; }
+        .description { margin: 20px 0; font-size: 1.1em; }
+        .price { font-size: 1.2em; margin-bottom: 20px; }
         .btn { background-color: #00ffff; border: none; padding: 10px 20px; cursor: pointer; border-radius: 8px; font-weight: bold; color: black; }
     </style>
     <script>
-        function payerEtRediriger() {
+        function showPDFLink() {
             window.location.href = "support.html?produit=Clé USB Xtrakey 1";
+        }
+        function changeMainImage(src) {
+            document.getElementById('mainImage').src = src;
         }
     </script>
 </head>
 <body>
     <div class="container">
-        <h1>Clé USB Xtrakey 1</h1>
-        <div class="image">
-            <img src="https://via.placeholder.com/300x180.png?text=USB+1" alt="Clé USB 1">
+        <h1>Clé USB Xtrakey 1 - 8GB</h1>
+        <div class="price">Prix : 14.99 $ CAD</div>
+        <div class="main-image">
+            <img id="mainImage" src="https://m.media-amazon.com/images/I/61bL+V3zGgL._AC_SL1500_.jpg" alt="Clé USB 1">
+            <div class="gallery">
+                <img src="https://m.media-amazon.com/images/I/61bL+V3zGgL._AC_SL1500_.jpg" onclick="changeMainImage(this.src)">
+                <img src="https://m.media-amazon.com/images/I/71B9QH3-FXL._AC_SL1500_.jpg" onclick="changeMainImage(this.src)">
+                <img src="https://m.media-amazon.com/images/I/61B04OoyrBL._AC_SL1500_.jpg" onclick="changeMainImage(this.src)">
+            </div>
         </div>
         <div class="description">
-            Cette clé USB haute performance est idéale pour stocker vos fichiers en toute sécurité. Vitesse, fiabilité et design.
+            Cette clé USB haute performance de 8 Go est idéale pour un stockage rapide et sécurisé. Compatible avec tous les appareils modernes, elle offre une grande fiabilité et une vitesse de transfert optimale.
         </div>
-        <button class="btn" onclick="payerEtRediriger()">Payer & Télécharger la facture</button>
+        <button class="btn" onclick="showPDFLink()">Payer & Télécharger la facture</button>
     </div>
 </body>
 </html>
