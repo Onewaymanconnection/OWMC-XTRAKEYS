@@ -80,7 +80,7 @@
 <body>
     <div class="container">
         <h2>Avis et Commentaires</h2>
-        <form id="avisForm" action="https://script.google.com/macros/s/AKfycbwpC8yYBf0_sOReC-pj1DQQuIcBy7z-JdVeMXas_yQn/dev" method="POST">
+        <form id="avisForm" action="https://script.google.com/macros/s/AKfycbwec-LlmFxAugKu9FpLAGDnL446lYFPf9M9SthR1S1lLSpSa0wYcdyo4SaQ94UenURs0VQ/exec" method="POST">
             <label>Nom du produit :</label>
             <input type="text" name="produit" id="produit" required readonly>
 
@@ -137,7 +137,6 @@
             });
         });
 
-        // Auto-remplir produit à partir de l’URL
         const url = new URL(window.location.href);
         const productName = url.searchParams.get("produit") || "Nom du produit";
         document.getElementById("produit").value = productName;
