@@ -2,38 +2,172 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Support - OWMC-XTRAKEYS</title>
-    <style>
-        body { background-color: #0f0f0f; color: #fff; font-family: Arial, sans-serif; padding: 20px; }
-        h1 { color: #00ffff; }
-        form { background-color: #1f1f1f; padding: 20px; border-radius: 10px; max-width: 600px; margin: auto; }
-        label { display: block; margin-top: 10px; }
-        input, textarea { width: 100%; padding: 10px; margin-top: 5px; border-radius: 5px; border: none; }
-        button { background-color: #00ffff; border: none; padding: 10px 20px; cursor: pointer; margin-top: 20px; border-radius: 8px; font-weight: bold; }
-        .rating { font-size: 1.5em; margin-top: 10px; }
-        .emoji-btn { font-size: 1.2em; cursor: pointer; margin: 5px; }
-    </style>
+  <meta charset="UTF-8">
+  <title>Support Client - OWMC</title>
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background-color: #1c1c1c;
+      padding: 20px;
+      border-radius: 12px;
+    }
+    h1 {
+      text-align: center;
+      color: #00ffff;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input[type="email"], textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: none;
+    }
+    .rating {
+      display: flex;
+      justify-content: center;
+      margin: 15px 0;
+    }
+    .star {
+      font-size: 2rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .star:hover, .star.selected {
+      color: gold;
+      transform: scale(1.2);
+    }
+    .thumbs {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 15px 0;
+    }
+    .thumbs i {
+      font-size: 2.5rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .thumbs i.selected {
+      color: #00ffcc;
+      transform: scale(1.3);
+    }
+    .confirmation {
+      display: none;
+      margin-top: 20px;
+      color: #00ffcc;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    button {
+      margin-top: 20px;
+      background-color: #00ffff;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+    }
+  </style>
+  <script>
+    let selectedRating = 0;
+    let selectedThumb = "";
+
+    function selectStar(index) {
+      selectedRating = index;
+      document.querySelectorAll('.star').forEach((el, i) => {
+        el.classList.toggle('selected', i < index);
+      });
+    }
+
+    function toggleThumb(type) {
+      selectedThumb = type;
+      document.querySelectorAll('.thumbs i').forEach(el => {
+        el.classList.remove('selected');
+      });
+      document.getElementById(type).classList.add('selected');
+    }
+
+    function submitForm(event) {
+      event.preventDefault();
+      const product = new URLSearchParams(window.location.search).get('produit') || "Non défini";
+      const email = document.getElementById('email').value;
+      const comment = document.getElementById('comment').value;
+
+      fetch('https://script.google.com/macros/s/AKfycbwec-LImFxAugKu9FpLAGDnL446lYFPf9M5thR1Sl1LSpSa0wYcdyo4SaQ94UenURs0VQ/exec', {
+        method: 'POST',
+        body: JSON.stringify({
+          produit: product,
+          email: email,
+          commentaire: comment,
+          etoiles: selectedRating,
+          pouce: selectedThumb
+        })
+      }).then(() => {
+        document.getElementById('confirmation').style.display = 'block';
+        setTimeout(() => {
+          document.getElementById('confirmation').style.display = 'none';
+        }, 3000);
+        document.getElementById('supportForm').reset();
+        selectedRating = 0;
+        selectedThumb = "";
+        document.querySelectorAll('.star').forEach(el => el.classList.remove('selected'));
+        document.querySelectorAll('.thumbs i').forEach(el => el.classList.remove('selected'));
+      });
+    }
+
+    window.onload = () => {
+      const p = new URLSearchParams(window.location.search).get('produit');
+      if (p) document.getElementById('productName').value = p;
+    };
+  </script>
 </head>
 <body>
-    <h1>Support Client</h1>
-    <form action="https://formspree.io/f/mjkypajr" method="POST">
-        <label for="email">Votre adresse email :</label>
-        <input type="email" name="email" required>
+  <div class="container">
+    <h1>Support Client - OWMC</h1>
+    <form id="supportForm" onsubmit="submitForm(event)">
+      <label>Nom du produit :</label>
+      <input type="text" id="productName" disabled>
 
-        <label for="message">Votre message :</label>
-        <textarea name="message" rows="5" required></textarea>
+      <label>Évaluation :</label>
+      <div class="thumbs">
+        <i id="like" class="thumb" onclick="toggleThumb('like')">👍</i>
+        <i id="dislike" class="thumb" onclick="toggleThumb('dislike')">👎</i>
+      </div>
 
-        <label>Êtes-vous satisfait ?</label>
-        <div>
-            <span class="emoji-btn">👍</span>
-            <span class="emoji-btn">👎</span>
-        </div>
+      <div class="rating">
+        <span class="star" onclick="selectStar(1)">★</span>
+        <span class="star" onclick="selectStar(2)">★</span>
+        <span class="star" onclick="selectStar(3)">★</span>
+        <span class="star" onclick="selectStar(4)">★</span>
+        <span class="star" onclick="selectStar(5)">★</span>
+      </div>
 
-        <label>Notez votre expérience :</label>
-        <div class="rating">⭐️⭐️⭐️⭐️⭐️</div>
+      <label>Email (facultatif) :</label>
+      <input type="email" id="email" placeholder="ex: client@email.com">
 
-        <button type="submit">Envoyer</button>
+      <label>Commentaire :</label>
+      <textarea id="comment" rows="4" placeholder="Votre avis ici..."></textarea>
+
+      <button type="submit">Envoyer</button>
+      <div id="confirmation" class="confirmation">Merci pour votre avis, il compte pour nous.</div>
     </form>
+  </div>
 </body>
 </html>
