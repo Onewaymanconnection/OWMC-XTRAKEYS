@@ -1,0 +1,113 @@
+
+<section class="page-width">
+  <style>
+    .owmc-support-box {
+      background-color: #111;
+      color: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,255,255,0.3);
+      max-width: 800px;
+      margin: 40px auto;
+    }
+    .owmc-support-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .owmc-support-box input,
+    .owmc-support-box textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background: #222;
+      color: white;
+      border: 1px solid #444;
+      border-radius: 8px;
+    }
+    .owmc-stars span,
+    .owmc-thumbs span {
+      font-size: 24px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    .owmc-stars .active,
+    .owmc-thumbs .active {
+      color: cyan;
+    }
+    .confirmation-message {
+      display: none;
+      margin-top: 20px;
+      color: lime;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+
+  <div class="owmc-support-box">
+    <h2>Besoin d’aide ou envie de donner votre avis ?</h2>
+    <form id="supportForm">
+      <label for="product">Nom du produit</label>
+      <input type="text" id="product" name="product" placeholder="Nom du produit">
+
+      <label for="email">E-mail (facultatif)</label>
+      <input type="email" id="email" name="email" placeholder="votre@email.com">
+
+      <label for="comment">Votre message ou commentaire</label>
+      <textarea id="comment" name="comment" rows="4" placeholder="Écrivez votre message..."></textarea>
+
+      <label>Note (cliquez sur les étoiles)</label>
+      <div class="owmc-stars" id="starRating">
+        <span data-value="1">&#9733;</span>
+        <span data-value="2">&#9733;</span>
+        <span data-value="3">&#9733;</span>
+        <span data-value="4">&#9733;</span>
+        <span data-value="5">&#9733;</span>
+      </div>
+
+      <label>Recommandez-vous ce produit ?</label>
+      <div class="owmc-thumbs" id="thumbRating">
+        <span data-value="up">&#128077;</span>
+        <span data-value="down">&#128078;</span>
+      </div>
+
+      <button type="submit" style="margin-top: 20px;">Envoyer</button>
+    </form>
+
+    <div class="confirmation-message" id="confirmationMessage">
+      Merci pour votre avis, il compte pour nous.
+    </div>
+  </div>
+
+  <script>
+    const stars = document.querySelectorAll('#starRating span');
+    const thumbs = document.querySelectorAll('#thumbRating span');
+    const form = document.getElementById('supportForm');
+    const confirmation = document.getElementById('confirmationMessage');
+    let starValue = 0;
+    let thumbValue = '';
+
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        starValue = star.getAttribute('data-value');
+        stars.forEach(s => s.classList.remove('active'));
+        star.classList.add('active');
+      });
+    });
+
+    thumbs.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        thumbValue = thumb.getAttribute('data-value');
+        thumbs.forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+      });
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Simuler l'envoi vers un serveur ou Google Script
+      form.reset();
+      confirmation.style.display = 'block';
+    });
+  </script>
+</section>
