@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -11,12 +12,12 @@
       margin: 0;
     }
     header {
-      background-color: #001122;
+      background-color: #0a0a23;
       padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 3px solid #00ff99;
+      box-shadow: 0 0 10px #00ff88;
     }
     nav a {
       color: #00ffe7;
@@ -29,10 +30,11 @@
       text-shadow: 0 0 8px #00ffe7;
     }
     .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
       gap: 20px;
       padding: 30px;
+      justify-content: center;
     }
     .product {
       background: #1f1f1f;
@@ -40,6 +42,7 @@
       padding: 15px;
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 200px;
     }
     .product:hover {
       transform: scale(1.05);
@@ -49,10 +52,26 @@
       max-width: 100%;
       border-radius: 5px;
     }
-    h1 {
+    .video-container {
+      flex-basis: 100%;
       text-align: center;
-      color: #ff0040;
-      text-shadow: 0 0 6px #ff0040;
+      margin: 20px 0;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .video-container video {
+      width: 80%;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #00ffcc;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1 {
+      color: red;
+      text-align: center;
+      margin-top: 20px;
+      text-shadow: 0 0 10px #ff0040;
     }
     footer {
       text-align: center;
@@ -75,217 +94,223 @@
   <main>
     <h1>Bienvenue sur OWMC-XTRAKEYS</h1>
     <div class="product-grid">
-      
+
       <div class="product">
         <img src="images/usb1.jpg" alt="USB 1">
         <h3>Clé USB 1</h3>
-        <p>Prix : 16.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_1.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb2.jpg" alt="USB 2">
         <h3>Clé USB 2</h3>
-        <p>Prix : 18.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_2.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb3.jpg" alt="USB 3">
         <h3>Clé USB 3</h3>
-        <p>Prix : 20.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_3.html">Voir le produit</a>
       </div>
-    
-      <div class="product">
+
+      
+<video src="images/owmc_intro.mp4" autoplay loop muted></video>
+<div class="product">
         <img src="images/usb4.jpg" alt="USB 4">
         <h3>Clé USB 4</h3>
         <p>Prix : 14.99 $</p>
         <a href="product_4.html">Voir le produit</a>
       </div>
-    
+
+      <div class="video-container">
+        
+      </div>
+
       <div class="product">
         <img src="images/usb5.jpg" alt="USB 5">
         <h3>Clé USB 5</h3>
-        <p>Prix : 16.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_5.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb6.jpg" alt="USB 6">
         <h3>Clé USB 6</h3>
-        <p>Prix : 18.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_6.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb7.jpg" alt="USB 7">
         <h3>Clé USB 7</h3>
-        <p>Prix : 20.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_7.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb8.jpg" alt="USB 8">
         <h3>Clé USB 8</h3>
         <p>Prix : 14.99 $</p>
         <a href="product_8.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb9.jpg" alt="USB 9">
         <h3>Clé USB 9</h3>
-        <p>Prix : 16.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_9.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb10.jpg" alt="USB 10">
         <h3>Clé USB 10</h3>
-        <p>Prix : 18.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_10.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb11.jpg" alt="USB 11">
         <h3>Clé USB 11</h3>
-        <p>Prix : 20.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_11.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb12.jpg" alt="USB 12">
         <h3>Clé USB 12</h3>
         <p>Prix : 14.99 $</p>
         <a href="product_12.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb13.jpg" alt="USB 13">
         <h3>Clé USB 13</h3>
-        <p>Prix : 16.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_13.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb14.jpg" alt="USB 14">
         <h3>Clé USB 14</h3>
-        <p>Prix : 18.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_14.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb15.jpg" alt="USB 15">
         <h3>Clé USB 15</h3>
-        <p>Prix : 20.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_15.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb16.jpg" alt="USB 16">
         <h3>Clé USB 16</h3>
         <p>Prix : 14.99 $</p>
         <a href="product_16.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb17.jpg" alt="USB 17">
         <h3>Clé USB 17</h3>
-        <p>Prix : 16.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_17.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb18.jpg" alt="USB 18">
         <h3>Clé USB 18</h3>
-        <p>Prix : 18.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_18.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb19.jpg" alt="USB 19">
         <h3>Clé USB 19</h3>
-        <p>Prix : 20.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_19.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb20.jpg" alt="USB 20">
         <h3>Clé USB 20</h3>
         <p>Prix : 14.99 $</p>
         <a href="product_20.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb21.jpg" alt="USB 21">
         <h3>Clé USB 21</h3>
-        <p>Prix : 16.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_21.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb22.jpg" alt="USB 22">
         <h3>Clé USB 22</h3>
-        <p>Prix : 18.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_22.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb23.jpg" alt="USB 23">
         <h3>Clé USB 23</h3>
-        <p>Prix : 20.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_23.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb24.jpg" alt="USB 24">
         <h3>Clé USB 24</h3>
         <p>Prix : 14.99 $</p>
         <a href="product_24.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb25.jpg" alt="USB 25">
         <h3>Clé USB 25</h3>
-        <p>Prix : 16.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_25.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb26.jpg" alt="USB 26">
         <h3>Clé USB 26</h3>
-        <p>Prix : 18.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_26.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb27.jpg" alt="USB 27">
         <h3>Clé USB 27</h3>
-        <p>Prix : 20.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_27.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb28.jpg" alt="USB 28">
         <h3>Clé USB 28</h3>
         <p>Prix : 14.99 $</p>
         <a href="product_28.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb29.jpg" alt="USB 29">
         <h3>Clé USB 29</h3>
-        <p>Prix : 16.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_29.html">Voir le produit</a>
       </div>
-    
+
       <div class="product">
         <img src="images/usb30.jpg" alt="USB 30">
         <h3>Clé USB 30</h3>
-        <p>Prix : 18.99 $</p>
+        <p>Prix : 14.99 $</p>
         <a href="product_30.html">Voir le produit</a>
       </div>
-    
+
     </div>
   </main>
   <footer>
