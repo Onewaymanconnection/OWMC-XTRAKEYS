@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OWMC-XTRAKEYS</title>
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+    }
+    header {
+      background-color: #0a0a23;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 0 10px #00ff88;
+    }
+    nav a {
+      color: #00ffe7;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 8px #00ffe7;
+    }
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 30px;
+      justify-content: center;
+    }
+    .product {
+      background: #1f1f1f;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 200px;
+    }
+    .product:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #ff0040;
+    }
+    .product img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+    .video-container {
+      flex-basis: 100%;
+      text-align: center;
+      margin: 20px 0;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .video-container video {
+      width: 80%;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #00ffcc;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1 {
+      color: red;
+      text-align: center;
+      margin-top: 20px;
+      text-shadow: 0 0 10px #ff0040;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.8em;
+      color: #888;
+    }
+    .support-shopify-btn {
+      display: inline-block;
+      background: #00ffe7;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .support-shopify-btn:hover {
+      background: #00ccaa;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index_en.html">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="https://g8unbq-an.myshopify.com/pages/support" class="support-shopify-btn">Support</a>
+    </nav>
+    <button onclick="window.location.href='index.html'">EN / FR</button>
+  </header>
+
+  <main>
+    <h1>Welcome to OWMC-XTRAKEYS</h1>
+    <div class="product-grid">
+      <!-- Placeholder for USB products -->
+      <div class="product"><img src="images/usb1.jpg"><h3>USB Key 1</h3><p>Price: $14.99</p><a href="product_1.html">View Product</a></div>
+      <div class="product"><img src="images/usb2.jpg"><h3>USB Key 2</h3><p>Price: $14.99</p><a href="product_2.html">View Product</a></div>
+      <div class="product"><img src="images/usb3.jpg"><h3>USB Key 3</h3><p>Price: $14.99</p><a href="product_3.html">View Product</a></div>
+    </div>
+  </main>
+
+  <footer>
+    <a href="LICENSE_OWMC_XTRAKEYS.txt" target="_blank">Private License - All rights reserved</a><br>
+    <a href="https://g8unbq-an.myshopify.com/pages/support" class="support-shopify-btn">Leave your feedback on Shopify</a>
+  </footer>
+</body>
+</html>
